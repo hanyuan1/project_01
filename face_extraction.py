@@ -14,10 +14,6 @@ def facechop(image):
 
     img = cv2.imread(image)
 
-    #minisize = (img.shape[1],img.shape[0])
-    #miniframe = cv2.resize(img, minisize)
-
-    #faces = cascade.detectMultiScale(miniframe)
     gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = cascade.detectMultiScale(gray,
 		scaleFactor = 1.2,
@@ -31,7 +27,7 @@ def facechop(image):
 
         sub_face = img[y:y+h, x:x+w]
         imgname = "_" + str(y) + image.split('/')[-1]
-        face_file_name = "/Users/hanyuanzhuang/Desktop/project_01/test" + imgname
+        face_file_name = "/Users/hanyuanzhuang/Desktop/project_01/test/" + imgname
         cv2.imwrite(face_file_name, sub_face)
 
     cv2.imshow(image, img)
